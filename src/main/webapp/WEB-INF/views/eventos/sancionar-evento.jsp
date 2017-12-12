@@ -101,7 +101,7 @@
 	
 	<div class="section">
 	<div class="row col s10 offset-s1">
-	<form:form method="POST" modelAttribute="eventoVo" action="/SuperLigaWeb/eventos/confirmar" >
+	<form:form method="POST" modelAttribute="eventoVo" action="${pageContext.request.contextPath}/eventos/confirmar" >
     <div class="row">
       <div align="right" class="input-field col s11">
 	   <button class="btn waves-effect waves-light" type="submit" >

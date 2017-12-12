@@ -14,7 +14,7 @@
 <div class="container">
   <div class="section">
   
-    <form:form method="POST" modelAttribute="evento" action="/SuperLigaWeb/eventos/save" onsubmit="return confirm('Desea guardar el evento?');">
+    <form:form method="POST" modelAttribute="evento" action="${pageContext.request.contextPath}/eventos/save" onsubmit="return confirm('Desea guardar el evento?');">
     <form:hidden path="id"/>
     <form:hidden path="fechaTimestamp"/>
     <div class="row">

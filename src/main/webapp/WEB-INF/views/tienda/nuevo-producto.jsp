@@ -14,7 +14,7 @@
 <div class="section container">
   <div class="section">
   
-    <form:form method="POST" modelAttribute="producto" action="/SuperLigaWeb/productos/save" onsubmit="return confirm('Desea guardar el evento?');">
+    <form:form method="POST" modelAttribute="producto" action="${pageContext.request.contextPath}/productos/save" onsubmit="return confirm('Desea guardar el evento?');">
     <form:hidden path="id"/>
     <div class="row">
     <div class="row">
