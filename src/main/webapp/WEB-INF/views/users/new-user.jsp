@@ -14,7 +14,7 @@
 <div class="section container">
   <div class="section">
   
-    <form:form id="formUsuario" method="POST" modelAttribute="user" action="/SuperLigaWeb/users/save"  >
+    <form:form id="formUsuario" method="POST" modelAttribute="user" action="${pageContext.request.contextPath}/users/save"  >
     <div class="row">
     <div class="row">
         <h4 class="header center orange-text">Nuevo usuario</h4>

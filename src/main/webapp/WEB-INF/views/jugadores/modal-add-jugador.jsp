@@ -1,6 +1,6 @@
 <!-- Modal Structure -->
 <div id="modalAddJugador" class="modal">
-<form:form method="POST" modelAttribute="newJugador" action="/SuperLigaWeb/jugadores/new">
+<form:form method="POST" modelAttribute="newJugador" action="${pageContext.request.contextPath}/jugadores/new">
   <div class="modal-content">
     <h4>Agregar nuevo jugador</h4>
     <br>

@@ -22,7 +22,7 @@
         <li class="tab col s3"><a href="#test2">Ranking semestral</a></li>
       </ul>
     </div>
-  <form:form method="POST" modelAttribute="rankingMes" action="/SuperLigaWeb/">
+  <form:form method="POST" modelAttribute="rankingMes" action="${pageContext.request.contextPath}/">
     <div id="test1" class="col s12">
     <h4 class="header center orange-text">
     Ranking de ${meses[rankingMes.mes - 1].nomMes} ${rankingMes.anio}
@@ -103,7 +103,7 @@
     </div>
     </div>
     <%-- 
-    <form:form method="POST" modelAttribute="rankingSemestre" action="/SuperLigaWeb/">
+    <form:form method="POST" modelAttribute="rankingSemestre" action="${pageContext.request.contextPath}/">
     <div id="test2" class="col s12">
     <h4 class="header center orange-text">Ranking de Julio - Diciembre 2016</h4>
       <br>

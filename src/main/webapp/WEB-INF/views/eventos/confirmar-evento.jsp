@@ -13,7 +13,7 @@
 <main>
 <div class="container">
   <div class="section">  
-    <form:form method="POST" modelAttribute="eventoVo" action="/SuperLigaWeb/eventos/confirmarok" >
+    <form:form method="POST" modelAttribute="eventoVo" action="${pageContext.request.contextPath}/eventos/confirmarok" >
     <form:hidden path="evento.id" />
     <div class="row">
     <div class="row">
