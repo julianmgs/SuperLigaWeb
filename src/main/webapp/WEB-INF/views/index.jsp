@@ -25,15 +25,18 @@
   <form:form method="POST" modelAttribute="rankingMes" action="/SuperLigaWeb/">
     <div id="test1" class="col s12">
     <h4 class="header center orange-text">
-    Ranking de  
+    Ranking de ${meses[rankingMes.mes - 1].nomMes} ${rankingMes.anio}
+    <%-- 
     <a class='dropdown-button' href='#' data-activates='dropdown1' data-constrainwidth="false"><c:out value="${meses[rankingMes.mes - 1].nomMes}" /> </a>
     <c:out value="${rankingMes.anio}" />
-    </h4>
+    
     <ul id='dropdown1' class='dropdown-content'>
     <c:forEach items="${meses}" var="mes" >
     	<li><a href="#!" onclick="cambiarMes(${mes.nroMes});">${mes.nomMes}</a></li>
     </c:forEach>
   	</ul>
+  	--%>
+  	</h4>
   	<input id="hiddenMes" name="mes" value="${meses[rankingMes.mes - 1].nroMes}" type="hidden" />
   	<input id="hiddenAnio" name="anio" value="2017" type="hidden" />
     <br>
