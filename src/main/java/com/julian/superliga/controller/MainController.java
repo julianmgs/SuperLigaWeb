@@ -100,7 +100,7 @@ public class MainController {
 		model.addAttribute("rankingMes", rankingMes);
 		// model.addAttribute("rankingSemestre", rankingSemestre);
 
-		return "index";
+		return "/";
 	}
 
 	private List<Mes> inicializarMeses() {
