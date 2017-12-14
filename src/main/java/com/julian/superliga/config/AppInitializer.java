@@ -4,23 +4,18 @@ import java.io.File;
 
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
 import org.springframework.security.web.session.HttpSessionEventPublisher;
-import org.springframework.web.WebApplicationInitializer;
-import org.springframework.web.context.ContextLoaderListener;
-import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
-import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer /*implements WebApplicationInitializer*/ {
+public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
 	private int maxUploadSizeInMb = 5 * 1024 * 1024; // 5 MB
 	
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-	  return new Class[] { AppConfig.class, SecurityConfig.class };
+		return new Class[] { AppConfig.class, SecurityConfig.class };
 	}
 
 	@Override
@@ -30,7 +25,7 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
 	@Override
 	protected String[] getServletMappings() {
-	  return new String[] { "/" };
+		return new String[] { "/" };
 	}
 
 	@Override
@@ -39,7 +34,6 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
         servletContext.addListener(new HttpSessionEventPublisher());
 		servletContext.addListener(new SessionListener());
-		//servletContext.addListener(new ContextLoaderListener(ctx));
     }
 	
 	@Override
