@@ -1,9 +1,9 @@
 package com.julian.superliga.controller;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -85,13 +84,13 @@ public class EventosController {
 		
 		try {
 		
-		// Get the file and save it somewhere
-		byte[] bytes = file.getBytes();
-		Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
-		Files.write(path, bytes);
-		
-		redirectAttributes.addFlashAttribute("message",
-		 "You successfully uploaded '" + file.getOriginalFilename() + "'");
+			InputStream inputStream = file.getInputStream();
+			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+						
+			String line;
+			while ((line = bufferedReader.readLine()) != null) {
+				System.out.println(line);
+			}
 		
 		} catch (IOException e) {
 			e.printStackTrace();
