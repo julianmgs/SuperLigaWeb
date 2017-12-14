@@ -60,7 +60,7 @@
       <div class="input-field col s10 offset-s1">
       <c:if test="${evento.id == null}">
         <button class="btn waves-effect waves-light" type="submit" name="create" value='create' >
-        Crear evento
+        Guardar evento
 	    <i class="material-icons right">done</i>
 	  </button>
 	  </c:if>

@@ -2,6 +2,7 @@
 <!-- Dropdown Structure -->
 <sec:authorize access="isAuthenticated()">
 	<ul id="ddAdmin" class="dropdown-content">
+	  <li><a href="<c:url value="/eventos/upload" />">Subir evento</a></li>
 	  <li><a href="<c:url value="/eventos/new" />">Crear evento</a></li>
 	  <li><a href="<c:url value="/eventos/list" />">Lista de eventos</a></li>
 	  <li class="divider"></li>
@@ -14,6 +15,7 @@
 </sec:authorize>
 <sec:authorize access="isAuthenticated()">
 	<ul id="ddAdminMob" class="dropdown-content">
+	  <li><a href="<c:url value="/eventos/upload" />">Subir evento</a></li>
 	  <li><a href="<c:url value="/eventos/new" />">Crear evento</a></li>
 	  <li><a href="<c:url value="/eventos/list" />">Lista de eventos</a></li>
 	  <li class="divider"></li>

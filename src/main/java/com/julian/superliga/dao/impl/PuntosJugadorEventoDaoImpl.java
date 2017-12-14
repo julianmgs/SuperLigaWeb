@@ -61,22 +61,22 @@ public class PuntosJugadorEventoDaoImpl extends AbstractDao<Long, PuntosJugadorE
 				.addOrder(Order.desc("puntos"))
 				.setProjection(
 						Projections.projectionList()
-								.add(Projections.property("id"))
-								.add(Projections.groupProperty("id"))
+								//.add(Projections.property("id"))
+								//.add(Projections.groupProperty("id"))
 								.add(Projections.groupProperty("jugador"))
-								.add(Projections.property("evento"))
+								//.add(Projections.property("evento"))
 								.add(Projections.count("evento"))
-								.add(Projections.sum("puntos"))).list();
+								.add(Projections.sum("puntos"), "puntos")).list();
 
 		List<PuntosJugadorEvento> lista = new ArrayList<PuntosJugadorEvento>();
 		PuntosJugadorEvento punto;
 		for (Object[] pje : result) {
 			punto = new PuntosJugadorEvento();
-			punto.setId((long) pje[0]);
-			punto.setJugador((Jugador) pje[1]);
-			punto.setEvento((Evento) pje[2]);
-			punto.setEventosJugados((int) (long) pje[3]);
-			punto.setPuntos((int) (long) pje[4]);
+			//punto.setId((long) pje[0]);
+			punto.setJugador((Jugador) pje[0]);
+			//punto.setEvento((Evento) pje[2]);
+			punto.setEventosJugados((int) (long) pje[1]);
+			punto.setPuntos((int) (long) pje[2]);
 			lista.add(punto);
 		}
 
@@ -102,22 +102,22 @@ public class PuntosJugadorEventoDaoImpl extends AbstractDao<Long, PuntosJugadorE
 				.addOrder(Order.desc("puntos"))
 				.setProjection(
 						Projections.projectionList()
-								.add(Projections.property("id"))
-								.add(Projections.groupProperty("id"))
+								//.add(Projections.property("id"))
+								//.add(Projections.groupProperty("id"))
 								.add(Projections.groupProperty("jugador"))
-								.add(Projections.property("evento"))
+								//.add(Projections.property("evento"))
 								.add(Projections.count("evento"))
-								.add(Projections.sum("puntos"))).list();
+								.add(Projections.sum("puntos"), "puntos")).list();
 
 		List<PuntosJugadorEvento> lista = new ArrayList<PuntosJugadorEvento>();
 		PuntosJugadorEvento punto;
 		for (Object[] pje : result) {
 			punto = new PuntosJugadorEvento();
-			punto.setId((long) pje[0]);
-			punto.setJugador((Jugador) pje[1]);
-			punto.setEvento((Evento) pje[2]);
-			punto.setEventosJugados((int) (long) pje[3]);
-			punto.setPuntos((int) (long) pje[4]);
+			//punto.setId((long) pje[0]);
+			punto.setJugador((Jugador) pje[0]);
+			//punto.setEvento((Evento) pje[2]);
+			punto.setEventosJugados((int) (long) pje[1]);
+			punto.setPuntos((int) (long) pje[2]);
 			lista.add(punto);
 		}
 
