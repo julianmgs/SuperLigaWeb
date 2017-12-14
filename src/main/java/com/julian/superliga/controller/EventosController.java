@@ -1,5 +1,12 @@
 package com.julian.superliga.controller;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -12,6 +19,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.julian.superliga.model.Evento;
@@ -43,6 +52,8 @@ public class EventosController {
 	@Autowired
 	PuntosJugadorEventoService pjeService;
 
+	private static String UPLOADED_FOLDER = "F://temp//";
+	
 	@RequestMapping(value = { "/eventos/new" }, method = RequestMethod.GET)
 	public String newEvento(ModelMap model) {
 
@@ -53,7 +64,42 @@ public class EventosController {
 
 		return "eventos/form-evento";
 	}
+	
+	@RequestMapping(value = { "/eventos/upload" }, method = RequestMethod.GET)
+	public String uploadEvento(ModelMap model) {
 
+		return "eventos/upload-evento";
+	}
+
+	/**
+	 * Upload single file using Spring Controller
+	 */
+	@RequestMapping(value = "/eventos/upload", method = RequestMethod.POST)
+	public String singleFileUpload(@RequestParam("file") MultipartFile file,
+            RedirectAttributes redirectAttributes) {
+
+		if (file.isEmpty()) {
+			redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
+			return "redirect:uploadStatus";
+		}
+		
+		try {
+		
+		// Get the file and save it somewhere
+		byte[] bytes = file.getBytes();
+		Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
+		Files.write(path, bytes);
+		
+		redirectAttributes.addFlashAttribute("message",
+		 "You successfully uploaded '" + file.getOriginalFilename() + "'");
+		
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return "redirect:/uploadStatus";
+	}
+	
 	@RequestMapping(value = { "/eventos/save" }, method = RequestMethod.POST, params = "create")
 	public String createEvento(ModelMap model,
 			@ModelAttribute("evento") Evento evento,

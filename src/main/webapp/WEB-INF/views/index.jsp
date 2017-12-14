@@ -25,8 +25,7 @@
   <form:form method="POST" modelAttribute="rankingMes" action="${pageContext.request.contextPath}/">
     <div id="test1" class="col s12">
     <h4 class="header center orange-text">
-    Ranking de ${meses[rankingMes.mes - 1].nomMes} ${rankingMes.anio}
-    <%-- 
+    Ranking de 
     <a class='dropdown-button' href='#' data-activates='dropdown1' data-constrainwidth="false"><c:out value="${meses[rankingMes.mes - 1].nomMes}" /> </a>
     <c:out value="${rankingMes.anio}" />
     
@@ -35,7 +34,6 @@
     	<li><a href="#!" onclick="cambiarMes(${mes.nroMes});">${mes.nomMes}</a></li>
     </c:forEach>
   	</ul>
-  	--%>
   	</h4>
   	<input id="hiddenMes" name="mes" value="${meses[rankingMes.mes - 1].nroMes}" type="hidden" />
   	<input id="hiddenAnio" name="anio" value="2017" type="hidden" />
