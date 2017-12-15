@@ -33,6 +33,10 @@ import com.julian.superliga.service.inter.TipoEventoService;
 import com.julian.superliga.vo.JugadorPuntos;
 import com.julian.superliga.vo.SancionarEventoVo;
 
+import airbrake.AirbrakeNotice;
+import airbrake.AirbrakeNoticeBuilder;
+import airbrake.AirbrakeNotifier;
+
 @Controller
 public class EventosController {
 
@@ -50,8 +54,6 @@ public class EventosController {
 
 	@Autowired
 	PuntosJugadorEventoService pjeService;
-
-	private static String UPLOADED_FOLDER = "F://temp//";
 	
 	@RequestMapping(value = { "/eventos/new" }, method = RequestMethod.GET)
 	public String newEvento(ModelMap model) {
@@ -72,11 +74,15 @@ public class EventosController {
 
 	/**
 	 * Upload single file using Spring Controller
+	 * @throws IOException 
 	 */
 	@RequestMapping(value = "/eventos/upload", method = RequestMethod.POST)
-	public String singleFileUpload(@RequestParam("file") MultipartFile file,
-            RedirectAttributes redirectAttributes) {
+	public String singleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
 
+		AirbrakeNotice notice = new AirbrakeNoticeBuilder("6111e427b3faa19ab1a41f36a691dece", new IOException(), "env").newNotice();
+	    AirbrakeNotifier notifier = new AirbrakeNotifier();
+	    notifier.notify(notice);
+	    
 		if (file.isEmpty()) {
 			redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
 			return "redirect:uploadStatus";
@@ -100,9 +106,7 @@ public class EventosController {
 	}
 	
 	@RequestMapping(value = { "/eventos/save" }, method = RequestMethod.POST, params = "create")
-	public String createEvento(ModelMap model,
-			@ModelAttribute("evento") Evento evento,
-			BindingResult result) {
+	public String createEvento(ModelMap model, @ModelAttribute("evento") Evento evento, BindingResult result) {
 
 		evento.setTipoEvento(tipoEventoService.findTipoEventoById(evento
 				.getTipoEvento().getId()));
@@ -115,8 +119,7 @@ public class EventosController {
 	}
 
 	@RequestMapping(value = { "/eventos/edit" }, method = RequestMethod.GET)
-	public String editEvento(ModelMap model,
-			@RequestParam(value = "id") Long id) {
+	public String editEvento(ModelMap model, @RequestParam(value = "id") Long id) {
 
 		model.addAttribute("evento", eventoService.findEventoById(id));
 
@@ -128,9 +131,7 @@ public class EventosController {
 	}
 
 	@RequestMapping(value = { "/eventos/save" }, method = RequestMethod.POST, params = "update")
-	public String updateEvento(ModelMap model,
-			@ModelAttribute("evento") Evento evento,
-			BindingResult result) {
+	public String updateEvento(ModelMap model, @ModelAttribute("evento") Evento evento, BindingResult result) {
 
 		evento.setTipoEvento(tipoEventoService.findTipoEventoById(evento
 				.getTipoEvento().getId()));
@@ -143,8 +144,7 @@ public class EventosController {
 	}
 
 	@RequestMapping(value = { "/eventos/cancel" }, method = RequestMethod.GET)
-	public String cancelarEvento(ModelMap model,
-			@RequestParam(value = "id") Long id) {
+	public String cancelarEvento(ModelMap model, @RequestParam(value = "id") Long id) {
 
 		eventoService.deleteEvento(eventoService.findEventoById(id));
 

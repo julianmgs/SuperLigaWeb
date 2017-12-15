@@ -57,4 +57,9 @@ public class InfoController {
 		return "errors/404";
 	}
 
+	@ExceptionHandler(Exception.class)
+	public String catchAllNonHandledExceptions(Exception e) {
+
+		return "errors/403";
+	}
 }
