@@ -19,8 +19,6 @@ public class InfoController {
 	@RequestMapping(value = { "/calendario" }, method = RequestMethod.GET)
 	public String calendario(ModelMap model) {
 
-		model.addAttribute("menuActive", "calendario");
-
 		return "errors/under-construction";
 	}
 
@@ -29,15 +27,11 @@ public class InfoController {
 
 		model.addAttribute("eventos", this.eventoService.findProximosEventos());
 
-		model.addAttribute("menuActive", "proximos");
-
 		return "info/proximos-eventos";
 	}
 
 	@RequestMapping(value = { "/about" }, method = RequestMethod.GET)
 	public String about(ModelMap model) {
-
-		model.addAttribute("menuActive", "about");
 
 		return "errors/under-construction";
 	}
