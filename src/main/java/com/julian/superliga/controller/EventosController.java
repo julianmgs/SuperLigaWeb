@@ -75,29 +75,17 @@ public class EventosController {
 	@RequestMapping(value = "/eventos/upload", method = RequestMethod.POST)
 	public String singleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) throws IOException {
 
-		IOException ex = new IOException();
-		//logger.info("Info al subir el archivo: " + ex.getMessage(), ex);
-		logger.error("Error al subir el archivo: " + ex.getMessage(), ex);
-		
-		
 		if (file.isEmpty()) {
 			redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
 			return "redirect:uploadStatus";
 		}
 		
-		try {
-		
-			InputStream inputStream = file.getInputStream();
-			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-						
-			String line;
-			while ((line = bufferedReader.readLine()) != null) {
-				System.out.println(line);
-			}
-		
-		} catch (IOException e) {
-			logger.error("Error al subir el archivo: " + e.getMessage(), e);
-			throw e;
+		InputStream inputStream = file.getInputStream();
+		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+					
+		String line;
+		while ((line = bufferedReader.readLine()) != null) {
+			System.out.println(line);
 		}
 		
 		return "redirect:/uploadStatus";
