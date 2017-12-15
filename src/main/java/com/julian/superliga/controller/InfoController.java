@@ -4,17 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.NoHandlerFoundException;
 
 import com.julian.superliga.service.inter.EventoService;
 
 @Controller
 @ControllerAdvice
 public class InfoController {
-
+	
 	@Autowired
 	EventoService eventoService;
 
@@ -44,22 +42,10 @@ public class InfoController {
 		return "errors/under-construction";
 	}
 
-	// for 403 access denied page
 	@RequestMapping(value = "/403", method = RequestMethod.GET)
 	public String accesssDenied(ModelMap model) {
 
 		return "errors/403";
 	}
-
-	@ExceptionHandler(NoHandlerFoundException.class)
-	public String handleNoHandlerFoundException(NoHandlerFoundException e) {
-
-		return "errors/404";
-	}
-
-	@ExceptionHandler(Exception.class)
-	public String catchAllNonHandledExceptions(Exception e) {
-
-		return "errors/403";
-	}
+	
 }
