@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -55,6 +56,8 @@ public class EventosController {
 	@Autowired
 	PuntosJugadorEventoService pjeService;
 	
+	private static final Logger logger = Logger.getLogger(EventosController.class);
+	
 	@RequestMapping(value = { "/eventos/new" }, method = RequestMethod.GET)
 	public String newEvento(ModelMap model) {
 
@@ -79,10 +82,8 @@ public class EventosController {
 	@RequestMapping(value = "/eventos/upload", method = RequestMethod.POST)
 	public String singleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
 
-		AirbrakeNotice notice = new AirbrakeNoticeBuilder("6111e427b3faa19ab1a41f36a691dece", new IOException(), "env").newNotice();
-	    AirbrakeNotifier notifier = new AirbrakeNotifier();
-	    notifier.notify(notice);
-	    
+		logger.error("This is Error message", new Exception("Testing"));
+		
 		if (file.isEmpty()) {
 			redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
 			return "redirect:uploadStatus";

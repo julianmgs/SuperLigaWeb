@@ -181,7 +181,7 @@
             <artifactId>airbrake-java</artifactId>
             <version>2.2.0</version>
         </dependency>
-        
+		
         <!-- Log4j -->
 		<dependency>
 			<groupId>log4j</groupId>
