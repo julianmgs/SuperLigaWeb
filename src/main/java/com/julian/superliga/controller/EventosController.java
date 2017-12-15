@@ -4,9 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -33,10 +30,6 @@ import com.julian.superliga.service.inter.PuntosJugadorEventoService;
 import com.julian.superliga.service.inter.TipoEventoService;
 import com.julian.superliga.vo.JugadorPuntos;
 import com.julian.superliga.vo.SancionarEventoVo;
-
-import airbrake.AirbrakeNotice;
-import airbrake.AirbrakeNoticeBuilder;
-import airbrake.AirbrakeNotifier;
 
 @Controller
 public class EventosController {
@@ -80,9 +73,11 @@ public class EventosController {
 	 * @throws IOException 
 	 */
 	@RequestMapping(value = "/eventos/upload", method = RequestMethod.POST)
-	public String singleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
+	public String singleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) throws IOException {
 
-		logger.error("This is Error message", new Exception("Testing"));
+		IOException ex = new IOException();
+		logger.info("Info al subir el archivo: " + ex.getMessage(), ex);
+		logger.error("Error al subir el archivo: " + ex.getMessage(), ex);
 		
 		if (file.isEmpty()) {
 			redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
@@ -100,7 +95,8 @@ public class EventosController {
 			}
 		
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error("Error al subir el archivo: " + e.getMessage(), e);
+			throw e;
 		}
 		
 		return "redirect:/uploadStatus";
