@@ -34,17 +34,17 @@
 
     <!-- Para version mobile -->
     <ul class="side-nav" id="mobile" >
-      <li <c:if test="${menuActive == 'calendario'}"><c:out value="${'class=active'}" /></c:if> >
+      <li>
 	  	<a href="<c:url value="/calendario" />" >
 	    	Calendario
 	  	</a>
 	  </li>
-      <li <c:if test="${menuActive == 'proximos'}"><c:out value="${'class=active'}" /></c:if> >
+      <li>
 	  	<a href="<c:url value="/proximos" />" >
 	    	Pr&oacute;ximos eventos
 	  	</a>
 	  </li>
-      <li <c:if test="${menuActive == 'about'}"><c:out value="${'class=active'}" /></c:if> >
+      <li>
 	  	<a href="<c:url value="/about" />" >
 	    	Sobre nosotros
 	  	</a>
@@ -72,22 +72,22 @@
     </ul>
     
     <ul class="right hide-on-med-and-down">
-      <li <c:if test="${menuActive == 'calendario'}"><c:out value="${'class=active'}" /></c:if> >
+      <li>
 	  	<a href="<c:url value="/eventos/upload" />" >
 	    	Subir
 	  	</a>
 	  </li>
-      <li <c:if test="${menuActive == 'calendario'}"><c:out value="${'class=active'}" /></c:if> >
-	  	<a href="<c:url value="/calendario" />" >
+      <li>
+	  	<a href="<c:url value="/calendario" />" id="testid" >
 	    	Calendario
 	  	</a>
 	  </li>
-      <li <c:if test="${menuActive == 'proximos'}"><c:out value="${'class=active'}" /></c:if> >
+      <li>
 	  	<a href="<c:url value="/proximos" />" >
 	    	Pr&oacute;ximos eventos
 	  	</a>
 	  </li>
-      <li <c:if test="${menuActive == 'about'}"><c:out value="${'class=active'}" /></c:if> >
+      <li>
 	  	<a href="<c:url value="/about" />" >
 	    	Sobre nosotros
 	  	</a>

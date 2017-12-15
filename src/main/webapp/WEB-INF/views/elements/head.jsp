@@ -10,4 +10,4 @@
 <spring:url value="/resources/css/style.css" var="style" />
 <link href="${style}" rel="stylesheet" />
 <link rel="shortcut icon" href="<c:url value="/resources/img/favicon.ico"/>" />
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->

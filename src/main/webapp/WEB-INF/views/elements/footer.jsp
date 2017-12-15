@@ -16,14 +16,13 @@
   
 <!--  Scripts-->
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="http://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script> -->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 
 <spring:url value="/resources/js/jquery.dataTables.min.js" var="jqueryDataTables" />
 <spring:url value="/resources/js/materialize.js" var="materializeJs" />
-<spring:url value="/resources/js/init.js" var="initJs" />
+<spring:url value="/resources/js/site.js" var="initJs" />
 
 <script src="${jqueryDataTables}"></script>
 <script src="${materializeJs}"></script>
-
 <script src="${initJs}"></script>
