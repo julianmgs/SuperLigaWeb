@@ -76,8 +76,9 @@ public class EventosController {
 	public String singleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) throws IOException {
 
 		IOException ex = new IOException();
-		logger.info("Info al subir el archivo: " + ex.getMessage(), ex);
+		//logger.info("Info al subir el archivo: " + ex.getMessage(), ex);
 		logger.error("Error al subir el archivo: " + ex.getMessage(), ex);
+		
 		
 		if (file.isEmpty()) {
 			redirectAttributes.addFlashAttribute("message", "Please select a file to upload");

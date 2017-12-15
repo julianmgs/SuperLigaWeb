@@ -193,7 +193,7 @@
     </dependencies>
  
     <build>
-        <pluginManagement>
+	    <pluginManagement>
             <plugins>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -234,6 +234,10 @@
 			                        <destFileName>jetty-runner.jar</destFileName>
 			                    </artifactItem>
 			                </artifactItems>
+			                <systemProperty>
+	                            <name>log4j.configuration</name>
+	                            <value>log4j-prod.properties</value>
+	                        </systemProperty>
 			            </configuration>
 			        </execution>
 			    </executions>
