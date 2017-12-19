@@ -55,8 +55,7 @@ public class EventosController {
 	public String newEvento(ModelMap model) {
 
 		model.addAttribute("evento", new Evento());
-		model.addAttribute("tiposEvento",
-				tipoEventoService.findAllTiposEvento());
+		model.addAttribute("tiposEvento", tipoEventoService.findAllTiposEvento());
 		model.addAttribute("formatos", formatoService.findAllFormatos());
 
 		return "eventos/form-evento";
@@ -73,7 +72,8 @@ public class EventosController {
 	 * @throws IOException 
 	 */
 	@RequestMapping(value = "/eventos/upload", method = RequestMethod.POST)
-	public String singleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) throws IOException {
+	public String singleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) 
+			throws IOException {
 
 		if (file.isEmpty()) {
 			redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
@@ -94,10 +94,8 @@ public class EventosController {
 	@RequestMapping(value = { "/eventos/save" }, method = RequestMethod.POST, params = "create")
 	public String createEvento(ModelMap model, @ModelAttribute("evento") Evento evento, BindingResult result) {
 
-		evento.setTipoEvento(tipoEventoService.findTipoEventoById(evento
-				.getTipoEvento().getId()));
-		evento.setFormato(formatoService.findFormatoById(evento.getFormato()
-				.getId()));
+		evento.setTipoEvento(tipoEventoService.findTipoEventoById(evento.getTipoEvento().getId()));
+		evento.setFormato(formatoService.findFormatoById(evento.getFormato().getId()));
 
 		eventoService.newEvento(evento);
 
@@ -109,8 +107,7 @@ public class EventosController {
 
 		model.addAttribute("evento", eventoService.findEventoById(id));
 
-		model.addAttribute("tiposEvento",
-				tipoEventoService.findAllTiposEvento());
+		model.addAttribute("tiposEvento", tipoEventoService.findAllTiposEvento());
 		model.addAttribute("formatos", formatoService.findAllFormatos());
 
 		return "eventos/form-evento";
@@ -119,10 +116,8 @@ public class EventosController {
 	@RequestMapping(value = { "/eventos/save" }, method = RequestMethod.POST, params = "update")
 	public String updateEvento(ModelMap model, @ModelAttribute("evento") Evento evento, BindingResult result) {
 
-		evento.setTipoEvento(tipoEventoService.findTipoEventoById(evento
-				.getTipoEvento().getId()));
-		evento.setFormato(formatoService.findFormatoById(evento.getFormato()
-				.getId()));
+		evento.setTipoEvento(tipoEventoService.findTipoEventoById(evento.getTipoEvento().getId()));
+		evento.setFormato(formatoService.findFormatoById(evento.getFormato().getId()));
 
 		eventoService.updateEvento(evento);
 
@@ -140,10 +135,8 @@ public class EventosController {
 	@RequestMapping(value = { "/eventos/list" }, method = RequestMethod.GET)
 	public String listEventos(ModelMap model) {
 
-		model.addAttribute("eventosPendientes",
-				eventoService.findAllEventosPendientes());
-		model.addAttribute("eventosSancionados",
-				eventoService.findAllEventosSancionados());
+		model.addAttribute("eventosPendientes", eventoService.findAllEventosPendientes());
+		model.addAttribute("eventosSancionados", eventoService.findAllEventosSancionados());
 
 		return "eventos/list-eventos";
 	}
@@ -207,8 +200,7 @@ public class EventosController {
 	 */
 
 	@RequestMapping(value = { "/eventos/posiciones" }, method = RequestMethod.GET)
-	public String viewRankingEvento(ModelMap model,
-			@RequestParam(value = "id") Long id) {
+	public String viewRankingEvento(ModelMap model, @RequestParam(value = "id") Long id) {
 
 		model.addAttribute("eventoVo", eventoService.posicionesEvento(id));
 

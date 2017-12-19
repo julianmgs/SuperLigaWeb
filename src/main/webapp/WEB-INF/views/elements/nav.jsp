@@ -71,14 +71,14 @@
 	  </sec:authorize>
     </ul>
     
-    <ul class="right hide-on-med-and-down">
+    <ul class="nav right hide-on-med-and-down">
       <li>
 	  	<a href="<c:url value="/eventos/upload" />" >
 	    	Subir
 	  	</a>
 	  </li>
-      <li>
-	  	<a href="<c:url value="/calendario" />" id="testid" >
+      <li >
+	  	<a href="<c:url value="/calendario" />" >
 	    	Calendario
 	  	</a>
 	  </li>
