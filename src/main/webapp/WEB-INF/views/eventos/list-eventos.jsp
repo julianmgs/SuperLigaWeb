@@ -57,9 +57,9 @@
 			<td>${evento.tipoEvento}</td>
 			<td>${evento.formato}</td>
 			<td class="center">
-				<a title="Sancionar" class="btn-floating blue darken-2" href="<c:url value="/eventos/sancionar?id=${evento.id}" />" ><i class="material-icons">perm_identity</i></a>
-				<a title="Editar" class="btn-floating green darken-2" href="<c:url value="/eventos/edit?id=${evento.id}" />"><i class="material-icons">mode_edit</i></a>
-				<a title="Eliminar" class="btn-floating red darken-2" href="<c:url value="/eventos/cancel?id=${evento.id}" />"><i class="material-icons">delete</i></a>
+				<a title="Sancionar" class="btn-floating blue darken-2 tooltipped" href="<c:url value="/eventos/sancionar?id=${evento.id}" />" data-position="top" data-delay="50" data-tooltip="Sancionar" ><i class="material-icons">perm_identity</i></a>
+				<a title="Editar" class="btn-floating green darken-2 tooltipped" href="<c:url value="/eventos/edit?id=${evento.id}" />" data-position="top" data-delay="50" data-tooltip="Editar" ><i class="material-icons">mode_edit</i></a>
+				<a title="Eliminar" class="btn-floating red darken-2 tooltipped" href="<c:url value="/eventos/cancel?id=${evento.id}" />" data-position="top" data-delay="50" data-tooltip="Eliminar"><i class="material-icons">delete</i></a>
 			</td>
 			</tr>
 		</c:forEach>
