@@ -14,7 +14,7 @@
 <div class="section container">
   <div class="section">
   
-    <form:form id="formContacto" method="POST" modelAttribute="mensaje" action="${pageContext.request.contextPath}/users/save"  >
+    <form:form id="formContacto" method="POST" modelAttribute="mensaje" action="${pageContext.request.contextPath}/contacto"  >
     <div class="row">
     <div class="row">
         <h4 class="header center orange-text">Nuevo usuario</h4>
