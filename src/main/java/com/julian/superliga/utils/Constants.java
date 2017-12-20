@@ -32,5 +32,7 @@ public final class Constants {
 	public static final Long ROLE_ADMIN = 1l;
 	public static final Long ROLE_TO = 2l;
 	public static final Long ROLE_PLAYER = 3l;
+	
+	public static final String EMAIL_CONTACTO = "julianmgs@gmail.com";
 
 }
