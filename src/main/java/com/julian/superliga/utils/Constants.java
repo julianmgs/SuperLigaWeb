@@ -32,7 +32,5 @@ public final class Constants {
 	public static final Long ROLE_ADMIN = 1l;
 	public static final Long ROLE_TO = 2l;
 	public static final Long ROLE_PLAYER = 3l;
-	
-	public static final String SENDGRID_API_KEY = "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";
 
 }
