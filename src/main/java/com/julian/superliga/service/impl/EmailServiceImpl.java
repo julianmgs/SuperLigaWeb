@@ -29,7 +29,7 @@ public class EmailServiceImpl implements EmailService {
 	    Content content = new Content("text/plain", "Hello, Email!");
 	    Mail mail = new Mail(from, subject, to, content);
 
-	    SendGrid sg = new SendGrid(System.getenv(Constants.SENDGRID_API_KEY));
+	    SendGrid sg = new SendGrid(Constants.SENDGRID_API_KEY);
 	    Request request = new Request();
 
 		request.setMethod(Method.POST);
