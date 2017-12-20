@@ -33,7 +33,7 @@
     <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
 
     <!-- Para version mobile -->
-    <ul class="side-nav" id="mobile" >
+    <ul class="nav side-nav" id="mobile" >
       <li>
 	  	<a href="<c:url value="/calendario" />" >
 	    	Calendario
@@ -49,10 +49,15 @@
 	    	Sobre nosotros
 	  	</a>
 	  </li>
+	  <li>
+	  	<a href="<c:url value="/contacto" />" >
+	    	Contacto
+	  	</a>
+	  </li>
       <!-- Dropdown Trigger -->
       <sec:authorize access="isAuthenticated()">
 		    <li>
-			    <form id="logoutForm" action="<%=request.getContextPath()%>/appLogout" method="POST">
+			    <form id="logoutForm-movnav" action="<%=request.getContextPath()%>/appLogout" method="POST">
 			     <a href="#!" onclick="document.getElementById('logoutForm').submit();" >
 			     	<i class="material-icons">power_settings_new</i>
 			     </a>	
@@ -90,6 +95,11 @@
       <li>
 	  	<a href="<c:url value="/about" />" >
 	    	Sobre nosotros
+	  	</a>
+	  </li>
+	  <li>
+	  	<a href="<c:url value="/contacto" />" >
+	    	Contacto
 	  	</a>
 	  </li>
       <!-- Dropdown Trigger -->
