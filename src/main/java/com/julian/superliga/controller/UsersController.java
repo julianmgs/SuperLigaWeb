@@ -26,9 +26,7 @@ public class UsersController {
 	}
 
 	@RequestMapping(value = { "/users/save" }, method = RequestMethod.POST)
-	public String saveUser(ModelMap model,
-			@ModelAttribute("user") User user,
-			BindingResult result) {
+	public String saveUser(ModelMap model, @ModelAttribute("user") User user, BindingResult result) {
 
 		userService.saveNewUser(user);
 
