@@ -163,8 +163,7 @@ public class EventosController {
 			BindingResult result) {
 
 		eventoVo.setRankingFinal(calcularRankEvento(eventoVo));
-		eventoVo.setEvento(eventoService.findEventoById(eventoVo.getEvento()
-				.getId()));
+		eventoVo.setEvento(eventoService.findEventoById(eventoVo.getEvento().getId()));
 		model.addAttribute("eventoVo", eventoVo);
 
 		return "eventos/confirmar-evento";

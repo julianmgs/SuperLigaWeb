@@ -20,8 +20,9 @@ public class GlobalDefaultExceptionHandler {
 	@ExceptionHandler(value = Exception.class)
 	public String defaultErrorHandler(HttpServletRequest req, Exception e) throws Exception {
 		
-		if (AnnotationUtils.findAnnotation(e.getClass(), ResponseStatus.class) != null)
+		if (AnnotationUtils.findAnnotation(e.getClass(), ResponseStatus.class) != null) {
 			throw e;
+		}
 	
 		return "errors/500";
 	}

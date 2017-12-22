@@ -1,15 +1,11 @@
 package com.julian.superliga.config;
 
-import java.io.IOException;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.Ordered;
-import org.springframework.core.env.Environment;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
@@ -25,9 +21,6 @@ import org.springframework.web.servlet.view.JstlView;
 @ComponentScan(basePackages = "com.julian.superliga")
 public class AppConfig extends WebMvcConfigurerAdapter {
 
-	@Autowired
-	private Environment environment;
-	
 	@Bean
     public MultipartResolver multipartResolver() {
         return new StandardServletMultipartResolver();

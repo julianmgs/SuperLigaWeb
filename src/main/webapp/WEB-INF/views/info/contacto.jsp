@@ -16,43 +16,47 @@
   
     <form:form id="formContacto" method="POST" modelAttribute="mensaje" action="${pageContext.request.contextPath}/contacto"  >
     <div class="row">
-    <div class="row">
-        <h4 class="header center orange-text">Nuevo usuario</h4>
-      </div>
-    <form class="col s12">
+    <div class="col s12">
+        <h4 class="header center orange-text">Contacto</h4>
+    </div>
+    <div class="col s12 m6">
       <div class="row">
-        <div class="input-field col s5 offset-s1">
+        <div class="input-field col s12">
           <form:input path="nombre" id="nombre" type="text" required="required" aria-required="true" />
           <label for="nombre">Nombre</label>
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s5 offset-s1">
+        <div class="input-field col s12">
           <form:input path="email" id="email" type="text" required="required" aria-required="true" />
           <label for="email">Email</label>
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s5 offset-s1">
+        <div class="input-field col s12">
           <form:input path="asunto" id="asunto" type="text" required="required" aria-required="true" />
           <label for="asunto">Asunto</label>
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s5 offset-s1">
+        <div class="input-field col s12">
           <form:textarea path="mensaje" id="mensaje" type="text" required="required" aria-required="true" class="materialize-textarea" />
           <label for="mensaje">Mensaje</label>
         </div>
       </div>
       <div class="row">
-      <div class="input-field col s10 offset-s1">
+      <div class="input-field col s12">
         <button class="btn waves-effect waves-light" type="submit" name="create" value='create' >
         Enviar
 	    <i class="material-icons right">done</i>
 	    </button>
 	  </div>
       </div>
-    </form>
+    </div>
+    <div class="col s12 m6">
+    
+    
+    </div>
   </div>
   </form:form>
 

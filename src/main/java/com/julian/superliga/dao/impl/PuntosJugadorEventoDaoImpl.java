@@ -10,7 +10,6 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.julian.superliga.dao.inter.PuntosJugadorEventoDao;
-import com.julian.superliga.model.Evento;
 import com.julian.superliga.model.Jugador;
 import com.julian.superliga.model.PuntosJugadorEvento;
 

@@ -29,8 +29,10 @@ public class CustomUserDetailsService implements UserDetailsService, UserService
 
 	@Autowired
 	UserDao userDao;
+	
 	@Autowired
 	RoleDao roleDao;
+	
 	@Autowired
 	PasswordEncoder passwordEncoder;
 
@@ -39,6 +41,11 @@ public class CustomUserDetailsService implements UserDetailsService, UserService
 	public UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
 
 		User user = userDao.findByUserName(username);
+		
+		if (user == null) {
+			throw new UsernameNotFoundException("Usuario " + username + " no encontrado.");
+		}
+		
 		List<GrantedAuthority> authorities = buildUserAuthority(user.getUserRoles());
 
 		return buildUserForAuthentication(user, authorities);
