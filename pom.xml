@@ -64,21 +64,21 @@
         </dependency>
         
         <!-- Spring Security -->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-web</artifactId>
-			<version>${spring.security.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-config</artifactId>
-			<version>${spring.security.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-taglibs</artifactId>
-			<version>${spring.security.version}</version>
-		</dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
 		
         <!-- Hibernate -->
         <dependency>
@@ -109,11 +109,11 @@
         -->
         
         <!-- PostgreSQL -->
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<version>9.3-1102-jdbc41</version>
-		</dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.3-1102-jdbc41</version>
+        </dependency>
  
         <!-- Joda-Time -->       
         <dependency>
@@ -186,18 +186,18 @@
         </dependency>
 		
         <!-- Log4j -->
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>${log4j.version}</version>
-		</dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
 		
-		<!-- SendGrid Emails en Heroku -->
-		<dependency>
-		    <groupId>com.sendgrid</groupId>
-		    <artifactId>sendgrid-java</artifactId>
-		    <version>4.1.2</version>
-		</dependency>
+        <!-- SendGrid Emails en Heroku -->
+        <dependency>
+            <groupId>com.sendgrid</groupId>
+            <artifactId>sendgrid-java</artifactId>
+            <version>4.1.2</version>
+        </dependency>
 		
     </dependencies>
  
@@ -227,27 +227,27 @@
         </pluginManagement>
         <plugins>
 	        <plugin>
-			    <groupId>org.apache.maven.plugins</groupId>
-			    <artifactId>maven-dependency-plugin</artifactId>
-			    <version>2.3</version>
-			    <executions>
-			        <execution>
-			            <phase>package</phase>
-			            <goals><goal>copy</goal></goals>
-			            <configuration>
-			                <artifactItems>
-			                    <artifactItem>
-			                        <groupId>org.eclipse.jetty</groupId>
-			                        <artifactId>jetty-runner</artifactId>
-			                        <version>9.2.7.v20150116</version>
-			                        <destFileName>jetty-runner.jar</destFileName>
-			                    </artifactItem>
-			                </artifactItems>
-			            </configuration>
-			        </execution>
-			    </executions>
-			</plugin>
-	    </plugins>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.3</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals><goal>copy</goal></goals>
+                        <configuration>
+                            <artifactItems>
+                               <artifactItem>
+                                   <groupId>org.eclipse.jetty</groupId>
+                                   <artifactId>jetty-runner</artifactId>
+                                   <version>9.2.7.v20150116</version>
+                                   <destFileName>jetty-runner.jar</destFileName>
+                               </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
 	    <resources>
 	        <resource>
 	            <directory>src/main/resources/prod</directory>           
