@@ -66,9 +66,9 @@
 </div>
 </main>
 <%@ include file="/WEB-INF/views/elements/footer.jsp" %>
-<spring:url value="/resources/js/jquery.dataTables.min.js" var="jqueryDataTables" />
+<spring:url value="/resources/js/dataTables/jquery.dataTables.min.js" var="jqueryDataTables" />
 <script src="${jqueryDataTables}"></script>
-<spring:url value="/resources/js/dataTables.materialize.js" var="materializeDataTables" />
+<spring:url value="/resources/js/dataTables/dataTables.materialize.js" var="materializeDataTables" />
 <script src="${materializeDataTables}"></script>
 <script type="text/javascript">
 	$(document).ready(function() {

@@ -19,8 +19,8 @@
 <!-- <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script> -->
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 
-<spring:url value="/resources/js/jquery.dataTables.min.js" var="jqueryDataTables" />
-<spring:url value="/resources/js/materialize.js" var="materializeJs" />
+<spring:url value="/resources/js/dataTables/jquery.dataTables.min.js" var="jqueryDataTables" />
+<spring:url value="/resources/js/materialize/materialize.js" var="materializeJs" />
 <spring:url value="/resources/js/site.js" var="initJs" />
 
 <script src="${jqueryDataTables}"></script>
