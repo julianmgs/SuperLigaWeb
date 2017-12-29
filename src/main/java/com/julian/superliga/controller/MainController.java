@@ -39,12 +39,12 @@ public class MainController {
 			@ModelAttribute("rankingMes") RankingMes rankingMes,
 			@ModelAttribute("rankingSemestre") RankingSemestre rankingSemestre,
 			BindingResult result) {
-		/*
+		
 		// Mes mes = new Mes();
 		// mes.setNroMes(Calendar.getInstance().get(Calendar.MONTH) + 1);
 		int mes = Calendar.getInstance().get(Calendar.MONTH) + 1;
 		int anio = Calendar.getInstance().get(Calendar.YEAR);
-
+		/*
 		List<PuntosJugadorSeasonVo> pjSeason = this.rankingService.rankingSeason(anio, mes);
 
 		int semestre = 1;
@@ -56,10 +56,10 @@ public class MainController {
 
 		model.addAttribute("pjSeason", pjSeason);
 		model.addAttribute("pjSemestre", pjSemestre);
-		
-		model.addAttribute("rankingMes", new RankingMes(mes, anio));
-		model.addAttribute("rankingSemestre", new RankingSemestre(semestre, anio));
 		*/
+		model.addAttribute("rankingMes", new RankingMes(mes, anio));
+		//model.addAttribute("rankingSemestre", new RankingSemestre(semestre, anio));
+		
 		model.addAttribute("meses", this.inicializarMeses());
 		model.addAttribute("anios", Arrays.asList(new Integer[] { 2017 }));
 

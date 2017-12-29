@@ -168,8 +168,9 @@
 </main>
  <%@ include file="/WEB-INF/views/elements/footer.jsp" %>
 
-<%--  
+
 <script type="text/javascript">
+/*
 $(document).ready(function() {
     $('select').material_select();
     
@@ -179,17 +180,16 @@ $(document).ready(function() {
     });
     
   });
+*/
 </script>
---%>
+
 <script type="text/javascript">
 
-/*
+
 $(function(){
-	var date = new Date();
-	loadJsonMes(date.getMonth(), date.getFullYear());
+	loadJsonMes($('#hiddenMes').val(), $('#hiddenAnio').val());
 });
-*/
-/*
+
 function loadJsonMes(mes, anio) {
 	
 	search = {mes: mes, anio: anio};
@@ -216,9 +216,13 @@ function loadJsonMes(mes, anio) {
 							.text(value.apellido)
 						)
 						.append($('<td>')
+							.attr('class', 'center')
+							.attr('data-field', 'jugados')
 							.text(value.eventosJugados)
 						)
 						.append($('<td>')
+							.attr('class', 'center')
+							.attr('data-field', 'puntos')
 							.text(value.puntos)
 						)
 					)
@@ -232,7 +236,7 @@ function loadJsonMes(mes, anio) {
 		}
 	});
 }
-*/
+
 </script>
 
 <script type="text/javascript">
