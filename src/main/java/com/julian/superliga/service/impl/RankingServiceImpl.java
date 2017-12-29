@@ -9,6 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.julian.superliga.dao.inter.PuntosJugadorEventoDao;
 import com.julian.superliga.model.PuntosJugadorEvento;
+import com.julian.superliga.model.json.JsonPuntosJugador;
+import com.julian.superliga.model.json.JsonRankingMes;
+import com.julian.superliga.model.json.JsonSearchRanking;
 import com.julian.superliga.service.inter.RankingService;
 import com.julian.superliga.vo.PuntosJugadorSeasonVo;
 
@@ -55,6 +58,31 @@ public class RankingServiceImpl implements RankingService {
 		}
 
 		return puntosVo;
+	}
+	
+	@Override
+	public JsonRankingMes buildJsonRankingMes(JsonSearchRanking sr) {
+		
+		List<PuntosJugadorEvento> puntos = pjeDao.findBySeason(sr.getAnio(), sr.getMes());
+
+		JsonRankingMes jsonRankingMes = new JsonRankingMes();
+		List<JsonPuntosJugador> ranking = new ArrayList<JsonPuntosJugador>();
+
+		JsonPuntosJugador jsonPuntos;
+		for (PuntosJugadorEvento p : puntos) {
+			jsonPuntos = new JsonPuntosJugador();
+			jsonPuntos.setDci(p.getJugador().getDci());
+			jsonPuntos.setNombre(p.getJugador().getNombre());
+			jsonPuntos.setApellido(p.getJugador().getApellido());
+			jsonPuntos.setPuntos(p.getPuntos() + 1);
+			jsonPuntos.setPuntos(p.getPuntos() + p.getEventosJugados()); // TODO Corroborar
+			jsonPuntos.setEventosJugados(p.getEventosJugados());
+			ranking.add(jsonPuntos);
+		}
+		
+		jsonRankingMes.setRanking(ranking);
+		
+		return jsonRankingMes;
 	}
 
 }

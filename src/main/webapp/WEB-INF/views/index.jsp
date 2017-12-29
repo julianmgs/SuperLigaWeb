@@ -6,6 +6,7 @@
 <head>
 	<title>Super Liga Rosario</title>
   <%@ include file="/WEB-INF/views/elements/head.jsp" %>
+  
 </head>
 <body>
 <%@ include file="/WEB-INF/views/elements/nav.jsp" %>
@@ -54,7 +55,7 @@
     <label>A&ntilde;o</label>
   </div>
   --%>
-    <table class="bordered highlight">
+    <table id="table-rankMes" class="bordered highlight">
     <thead>
 		<tr>
 			<th data-field="pos">
@@ -75,6 +76,7 @@
 		</tr>
 	</thead>
 	<tbody>
+	<%--
 		<c:set var="i" value="1" />
 		<c:forEach items="${pjSeason}" var="puntosJugador">
 			<tr>
@@ -86,6 +88,7 @@
 			</tr>
 			<c:set var="i" value="${i+1}" />
 		</c:forEach>
+	--%>
 	</tbody>
 	</table>
     
@@ -178,6 +181,60 @@ $(document).ready(function() {
   });
 </script>
 --%>
+<script type="text/javascript">
+
+/*
+$(function(){
+	var date = new Date();
+	loadJsonMes(date.getMonth(), date.getFullYear());
+});
+*/
+/*
+function loadJsonMes(mes, anio) {
+	
+	search = {mes: mes, anio: anio};
+	
+	var request = $.ajax({
+		type : "POST",
+		contentType : "application/json",
+		url : "${home}rankingMesAjax",
+		data : JSON.stringify(search),
+		dataType : 'json',
+		success : function(data) {
+			console.log("SUCCESS: ", data);
+			
+			$.each(data.ranking, function(index, value) {
+				$("#table-rankMes").find('tbody')
+					.append($('<tr>')
+						.append($('<td>')
+							.text(index + 1)
+						)
+						.append($('<td>')
+							.text(value.nombre)
+						)
+						.append($('<td>')
+							.text(value.apellido)
+						)
+						.append($('<td>')
+							.text(value.eventosJugados)
+						)
+						.append($('<td>')
+							.text(value.puntos)
+						)
+					)
+			});
+		},
+		error : function(e) {
+			console.log("ERROR: ", e);
+		},
+		done : function(e) {
+			console.log("DONE");
+		}
+	});
+}
+*/
+</script>
+
 <script type="text/javascript">
 function cambiarMes(nroMes) {
 	$('#hiddenMes').val(nroMes);

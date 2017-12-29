@@ -10,9 +10,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.julian.superliga.model.json.JsonRankingMes;
+import com.julian.superliga.model.json.JsonSearchRanking;
 import com.julian.superliga.service.inter.EventoService;
 import com.julian.superliga.service.inter.RankingService;
 import com.julian.superliga.vo.Mes;
@@ -35,7 +39,7 @@ public class MainController {
 			@ModelAttribute("rankingMes") RankingMes rankingMes,
 			@ModelAttribute("rankingSemestre") RankingSemestre rankingSemestre,
 			BindingResult result) {
-		
+		/*
 		// Mes mes = new Mes();
 		// mes.setNroMes(Calendar.getInstance().get(Calendar.MONTH) + 1);
 		int mes = Calendar.getInstance().get(Calendar.MONTH) + 1;
@@ -52,13 +56,12 @@ public class MainController {
 
 		model.addAttribute("pjSeason", pjSeason);
 		model.addAttribute("pjSemestre", pjSemestre);
-
-		model.addAttribute("meses", this.inicializarMeses());
-
-		model.addAttribute("anios", Arrays.asList(new Integer[] { 2017 }));
-
+		
 		model.addAttribute("rankingMes", new RankingMes(mes, anio));
 		model.addAttribute("rankingSemestre", new RankingSemestre(semestre, anio));
+		*/
+		model.addAttribute("meses", this.inicializarMeses());
+		model.addAttribute("anios", Arrays.asList(new Integer[] { 2017 }));
 
 		return "index";
 	}
@@ -103,6 +106,13 @@ public class MainController {
 		return "index";
 	}
 
+	@RequestMapping(value = "/rankingMesAjax")
+	@ResponseBody
+	public JsonRankingMes getRankingMesAjax(@RequestBody JsonSearchRanking sr) {
+
+		return this.rankingService.buildJsonRankingMes(sr);
+	}
+	
 	private List<Mes> inicializarMeses() {
 		List<Mes> meses = new ArrayList<Mes>();
 
