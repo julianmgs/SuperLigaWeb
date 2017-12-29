@@ -35,7 +35,7 @@ public class MainController {
 			@ModelAttribute("rankingMes") RankingMes rankingMes,
 			@ModelAttribute("rankingSemestre") RankingSemestre rankingSemestre,
 			BindingResult result) {
-
+		
 		// Mes mes = new Mes();
 		// mes.setNroMes(Calendar.getInstance().get(Calendar.MONTH) + 1);
 		int mes = Calendar.getInstance().get(Calendar.MONTH) + 1;

@@ -107,6 +107,7 @@
 			<td>${evento.formato}</td>
 			<td class="center">
 				<a title="Posiciones" class="btn-floating blue darken-2" href="<c:url value="/eventos/posiciones?id=${evento.id}" />" ><i class="material-icons">toc</i></a>
+			</td>
 		</c:forEach>
 	</tbody>
 	</table>
