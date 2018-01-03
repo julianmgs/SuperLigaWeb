@@ -7,6 +7,47 @@
 	<title>Super Liga Rosario</title>
   <%@ include file="/WEB-INF/views/elements/head.jsp" %>
   
+  <style type="text/css">
+	
+	/* Animacion del loader */
+	.loader {
+	    border: 16px solid #f3f3f3; /* Light grey */
+	    border-top: 16px solid #3498db; /* Blue */
+	    border-radius: 50%;
+	    width: 100px;
+	    height: 100px;
+	    animation: spin 2s linear infinite;
+	    position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto; /* presto! */
+	}
+	
+	.tiny-loader {
+	    border: 4px solid #f3f3f3; /* Light grey */
+	    border-top: 4px solid #3498db; /* Blue */
+	    border-radius: 50%;
+	    width: 20px;
+	    height: 20px;
+	    animation: spin 2s linear infinite;
+	    position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto; /* presto! */
+	}
+	
+	@keyframes spin {
+	    0% { transform: rotate(0deg); }
+	    100% { transform: rotate(360deg); }
+	}
+	/* FIN Animacion del loader */
+	
+	</style>
+  
 </head>
 <body>
 <%@ include file="/WEB-INF/views/elements/nav.jsp" %>
@@ -32,7 +73,7 @@
     
     <ul id='dropdown1' class='dropdown-content'>
     <c:forEach items="${meses}" var="mes" >
-    	<li><a href="#!" onclick="cambiarMes(${mes.nroMes});">${mes.nomMes}</a></li>
+    	<li><a href="#!" onclick="loadJsonMes(${mes.nroMes}, 2017);">${mes.nomMes}</a></li>
     </c:forEach>
   	</ul>
   	</h4>
@@ -75,7 +116,8 @@
 			</th>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody id="tbody-rankMes">
+	<div class="loader" id="loader" style="display:none"></div>
 	<%--
 		<c:set var="i" value="1" />
 		<c:forEach items="${pjSeason}" var="puntosJugador">
@@ -190,9 +232,21 @@ $(function(){
 	loadJsonMes($('#hiddenMes').val(), $('#hiddenAnio').val());
 });
 
+$(document)
+	/* Esconder el loader animado al completar la consulta Ajax */
+	.on({
+	    ajaxStop: function() {
+	    	$('#loader').hide();
+	    }
+	});
+
 function loadJsonMes(mes, anio) {
 	
-	search = {mes: mes, anio: anio};
+	$("#table-rankMes").find('tbody').empty();
+	$('#loader').show();
+		
+	//search = {mes: mes, anio: anio};
+	search = {mes: 12, anio: 2017};
 	
 	var request = $.ajax({
 		type : "POST",

@@ -74,7 +74,6 @@ public class RankingServiceImpl implements RankingService {
 			jsonPuntos.setDci(p.getJugador().getDci());
 			jsonPuntos.setNombre(p.getJugador().getNombre());
 			jsonPuntos.setApellido(p.getJugador().getApellido());
-			jsonPuntos.setPuntos(p.getPuntos() + 1);
 			jsonPuntos.setPuntos(p.getPuntos() + p.getEventosJugados()); // TODO Corroborar
 			jsonPuntos.setEventosJugados(p.getEventosJugados());
 			ranking.add(jsonPuntos);
