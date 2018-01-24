@@ -22,9 +22,9 @@ import org.springframework.web.servlet.view.JstlView;
 public class AppConfig extends WebMvcConfigurerAdapter {
 
 	@Bean
-    public MultipartResolver multipartResolver() {
-        return new StandardServletMultipartResolver();
-    }
+	public MultipartResolver multipartResolver() {
+		return new StandardServletMultipartResolver();
+	}
 	
 	@Bean
 	public ViewResolver viewResolver() {

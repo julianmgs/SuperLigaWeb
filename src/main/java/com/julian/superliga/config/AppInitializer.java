@@ -29,27 +29,26 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 	}
 
 	@Override
-    protected void registerDispatcherServlet(ServletContext servletContext) {
-        super.registerDispatcherServlet(servletContext);
+	protected void registerDispatcherServlet(ServletContext servletContext) {
+		super.registerDispatcherServlet(servletContext);
 
-        servletContext.addListener(new HttpSessionEventPublisher());
+		servletContext.addListener(new HttpSessionEventPublisher());
 		servletContext.addListener(new SessionListener());
-    }
+	}
 	
 	@Override
-    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+	protected void customizeRegistration(ServletRegistration.Dynamic registration) {
 
-        // upload temp file will put here
-        File uploadDirectory = new File(System.getProperty("java.io.tmpdir"));
+		// upload temp file will put here
+		File uploadDirectory = new File(System.getProperty("java.io.tmpdir"));
 
-        // register a MultipartConfigElement
-        MultipartConfigElement multipartConfigElement =
-                new MultipartConfigElement(uploadDirectory.getAbsolutePath(),
-                        maxUploadSizeInMb, maxUploadSizeInMb * 2, maxUploadSizeInMb / 2);
+		// register a MultipartConfigElement
+		MultipartConfigElement multipartConfigElement = 
+				new MultipartConfigElement(uploadDirectory.getAbsolutePath(), 
+						maxUploadSizeInMb, maxUploadSizeInMb * 2, maxUploadSizeInMb / 2);
 
-        registration.setMultipartConfig(multipartConfigElement);
+		registration.setMultipartConfig(multipartConfigElement);
         
-        registration.setInitParameter("throwExceptionIfNoHandlerFound", "true");
-    }
-
+		registration.setInitParameter("throwExceptionIfNoHandlerFound", "true");
+	}
 }
